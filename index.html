@@ -1,0 +1,946 @@
+
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <meta
+            name="description"
+            content="Documentation for easycancha API"
+        >
+    <title>API Reference</title>
+
+    <style media="screen">
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight .gh {
+  color: #999999;
+}
+.highlight .sr {
+  color: #f6aa11;
+}
+.highlight .go {
+  color: #888888;
+}
+.highlight .gp {
+  color: #555555;
+}
+.highlight .gs {
+}
+.highlight .gu {
+  color: #aaaaaa;
+}
+.highlight .nb {
+  color: #f6aa11;
+}
+.highlight .cm {
+  color: #75715e;
+}
+.highlight .cp {
+  color: #75715e;
+}
+.highlight .c1 {
+  color: #75715e;
+}
+.highlight .cs {
+  color: #75715e;
+}
+.highlight .c, .highlight .ch, .highlight .cd, .highlight .cpf {
+  color: #75715e;
+}
+.highlight .err {
+  color: #960050;
+}
+.highlight .gr {
+  color: #960050;
+}
+.highlight .gt {
+  color: #960050;
+}
+.highlight .gd {
+  color: #49483e;
+}
+.highlight .gi {
+  color: #49483e;
+}
+.highlight .ge {
+  color: #49483e;
+}
+.highlight .kc {
+  color: #66d9ef;
+}
+.highlight .kd {
+  color: #66d9ef;
+}
+.highlight .kr {
+  color: #66d9ef;
+}
+.highlight .no {
+  color: #66d9ef;
+}
+.highlight .kt {
+  color: #66d9ef;
+}
+.highlight .mf {
+  color: #ae81ff;
+}
+.highlight .mh {
+  color: #ae81ff;
+}
+.highlight .il {
+  color: #ae81ff;
+}
+.highlight .mi {
+  color: #ae81ff;
+}
+.highlight .mo {
+  color: #ae81ff;
+}
+.highlight .m, .highlight .mb, .highlight .mx {
+  color: #ae81ff;
+}
+.highlight .sc {
+  color: #ae81ff;
+}
+.highlight .se {
+  color: #ae81ff;
+}
+.highlight .ss {
+  color: #ae81ff;
+}
+.highlight .sd {
+  color: #e6db74;
+}
+.highlight .s2 {
+  color: #e6db74;
+}
+.highlight .sb {
+  color: #e6db74;
+}
+.highlight .sh {
+  color: #e6db74;
+}
+.highlight .si {
+  color: #e6db74;
+}
+.highlight .sx {
+  color: #e6db74;
+}
+.highlight .s1 {
+  color: #e6db74;
+}
+.highlight .s, .highlight .sa, .highlight .dl {
+  color: #e6db74;
+}
+.highlight .na {
+  color: #a6e22e;
+}
+.highlight .nc {
+  color: #a6e22e;
+}
+.highlight .nd {
+  color: #a6e22e;
+}
+.highlight .ne {
+  color: #a6e22e;
+}
+.highlight .nf, .highlight .fm {
+  color: #a6e22e;
+}
+.highlight .vc {
+  color: #ffffff;
+}
+.highlight .nn {
+  color: #ffffff;
+}
+.highlight .ni {
+  color: #ffffff;
+}
+.highlight .bp {
+  color: #ffffff;
+}
+.highlight .vg {
+  color: #ffffff;
+}
+.highlight .vi {
+  color: #ffffff;
+}
+.highlight .nv, .highlight .vm {
+  color: #ffffff;
+}
+.highlight .w {
+  color: #ffffff;
+}
+.highlight {
+  color: #ffffff;
+}
+.highlight .n, .highlight .py, .highlight .nx {
+  color: #ffffff;
+}
+.highlight .nl {
+  color: #f92672;
+}
+.highlight .ow {
+  color: #f92672;
+}
+.highlight .nt {
+  color: #f92672;
+}
+.highlight .k, .highlight .kv {
+  color: #f92672;
+}
+.highlight .kn {
+  color: #f92672;
+}
+.highlight .kp {
+  color: #f92672;
+}
+.highlight .o {
+  color: #f92672;
+}
+    </style>
+    <style media="print">
+      * {
+        -webkit-transition:none!important;
+        transition:none!important;
+      }
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight, .highlight .w {
+  color: #586e75;
+}
+.highlight .err {
+  color: #002b36;
+  background-color: #dc322f;
+}
+.highlight .c, .highlight .ch, .highlight .cd, .highlight .cm, .highlight .cpf, .highlight .c1, .highlight .cs {
+  color: #657b83;
+}
+.highlight .cp {
+  color: #b58900;
+}
+.highlight .nt {
+  color: #b58900;
+}
+.highlight .o, .highlight .ow {
+  color: #93a1a1;
+}
+.highlight .p, .highlight .pi {
+  color: #93a1a1;
+}
+.highlight .gi {
+  color: #859900;
+}
+.highlight .gd {
+  color: #dc322f;
+}
+.highlight .gh {
+  color: #268bd2;
+  background-color: #002b36;
+  font-weight: bold;
+}
+.highlight .k, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kv {
+  color: #6c71c4;
+}
+.highlight .kc {
+  color: #cb4b16;
+}
+.highlight .kt {
+  color: #cb4b16;
+}
+.highlight .kd {
+  color: #cb4b16;
+}
+.highlight .s, .highlight .sb, .highlight .sc, .highlight .dl, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
+  color: #859900;
+}
+.highlight .sa {
+  color: #6c71c4;
+}
+.highlight .sr {
+  color: #2aa198;
+}
+.highlight .si {
+  color: #d33682;
+}
+.highlight .se {
+  color: #d33682;
+}
+.highlight .nn {
+  color: #b58900;
+}
+.highlight .nc {
+  color: #b58900;
+}
+.highlight .no {
+  color: #b58900;
+}
+.highlight .na {
+  color: #268bd2;
+}
+.highlight .m, .highlight .mb, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mx {
+  color: #859900;
+}
+.highlight .ss {
+  color: #859900;
+}
+    </style>
+    <link href="stylesheets/screen-9c19b03a.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/print-966d6edc.css" rel="stylesheet" media="print" />
+      <script src="javascripts/all-024da600.js"></script>
+
+    <script>
+      $(function() { setupCodeCopy(); });
+    </script>
+  </head>
+
+  <body class="index" data-languages="[&quot;shell&quot;]">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="images/navbar-cad8cdcb.png" alt="" />
+      </span>
+    </a>
+    <div class="toc-wrapper">
+      <img src="images/logo-cd9d4741.png" class="logo" alt="" />
+        <div class="lang-selector">
+              <a href="#" data-language-name="shell">shell</a>
+        </div>
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+      <ul id="toc" class="toc-list-h1">
+          <li>
+            <a href="#introduction" class="toc-h1 toc-link" data-title="Introduction">Introduction</a>
+          </li>
+          <li>
+            <a href="#authentication" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
+          </li>
+          <li>
+            <a href="#users" class="toc-h1 toc-link" data-title="Users">Users</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#get-all-users" class="toc-h2 toc-link" data-title="Get All Users">Get All Users</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#transactions" class="toc-h1 toc-link" data-title="Transactions">Transactions</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#get-transactions-for-a-specific-date-range" class="toc-h2 toc-link" data-title="Get Transactions for a specific date range">Get Transactions for a specific date range</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
+          </li>
+      </ul>
+        <ul class="toc-footer">
+            <li><a href='https://github.com/slatedocs/slate'>Documentation Powered by Slate</a></li>
+        </ul>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <h1 id='introduction'>Introduction</h1>
+<p>Welcome to easycancha API! You can use our API to access easycancha API endpoints, which can get information on bookings, customers and other resources in our database.</p>
+
+<p>We have language bindings in Shell! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.</p>
+
+<p>This example API documentation page was created with <a href="https://github.com/slatedocs/slate">Slate</a>. Feel free to edit it and use it as a base for your own API&#39;s documentation.</p>
+<h1 id='authentication'>Authentication</h1>
+<blockquote>
+<p>To authorize, use this code:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
+curl <span class="s2">"api_endpoint_here"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"apikey: customerrandomapikey"</span>
+</code></pre></div>
+<blockquote>
+<p>Make sure to replace <code>customerrandomapikey</code> with your API key.</p>
+</blockquote>
+
+<p>easycancha uses API keys to allow access to the API. You can request a new API key to contacto@easycancha.com.</p>
+
+<p>easycancha expects for the API key to be included in all API requests to the server in a header that looks like the following:</p>
+
+<p><code>apikey: customerrandomapikey</code></p>
+
+<aside class="notice">
+You must replace <code>customerrandomapikey</code> with your personal API key.
+</aside>
+<h1 id='users'>Users</h1>
+<aside class="success">
+Context - These services apply to a specific club, which will be also informed at the moment of enabled the API, and will be part of the api URL (CLUBID Parameter)
+</aside>
+<h2 id='get-all-users'>Get All Users</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://www.easycancha.com/api/clubs/&lt;CLUBID&gt;/usersReport"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"apikey: customerrandomapikey"</span>
+</code></pre></div>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"error"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"users"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"userId"</span><span class="p">:</span><span class="w"> </span><span class="mi">66</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"firstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Roberto"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"lastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"de Campos Wichrowski"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"roberto.decampos@easycancha.com"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+56996666332"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"birthDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1979-09-09"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"age"</span><span class="p">:</span><span class="w"> </span><span class="mi">45</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"gender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"M"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"foidCountry"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CL"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"foidType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NI"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"foidNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"14543789K"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"emailConfirmed"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"webEnrolledDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-10-07"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"memberId"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"blocked"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"comments"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Este cliente es muy responsable."</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"userId"</span><span class="p">:</span><span class="w"> </span><span class="mi">597410</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"firstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Patricio"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"lastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cordero"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"patricio.cordero@easycancha.com"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+56976633559"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"birthDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1982-11-16"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"age"</span><span class="p">:</span><span class="w"> </span><span class="mi">42</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"gender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"M"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"foidCountry"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CL"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"foidType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NI"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"foidNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"154455671"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"emailConfirmed"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"webEnrolledDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-12-22"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"memberId"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"blocked"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"comments"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>This endpoint retrieves all users for a specific club.</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>GET https://www.easycancha.com/api/clubs/&lt;CLUBID&gt;/usersReport</code></p>
+<h3 id='url-parameters'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>CLUBID</td>
+<td>Club identifier</td>
+</tr>
+</tbody></table>
+<h3 id='object-user-description'>Object User description</h3>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>userId</td>
+<td>integer</td>
+<td>Unique user identifier</td>
+</tr>
+<tr>
+<td>firstName</td>
+<td>string</td>
+<td>user first name</td>
+</tr>
+<tr>
+<td>lastName</td>
+<td>string</td>
+<td>user last name</td>
+</tr>
+<tr>
+<td>email</td>
+<td>string</td>
+<td>user email</td>
+</tr>
+<tr>
+<td>phone</td>
+<td>string</td>
+<td>user phone in international format + and numbers (ie. +56977087296)</td>
+</tr>
+<tr>
+<td>birthDate</td>
+<td>string</td>
+<td>user birth date in YYYY-MM-DD format</td>
+</tr>
+<tr>
+<td>age</td>
+<td>integer</td>
+<td>user age</td>
+</tr>
+<tr>
+<td>gender</td>
+<td>string</td>
+<td>user gender M for Male or F for Female</td>
+</tr>
+<tr>
+<td>foidCountry</td>
+<td>string</td>
+<td>user document country ISO 3166-1 alpha-2</td>
+</tr>
+<tr>
+<td>foidType</td>
+<td>string</td>
+<td>user document type, NI for Identification Number, PP for passport, and could be others depending on the country</td>
+</tr>
+<tr>
+<td>foidNumber</td>
+<td>string</td>
+<td>user document number</td>
+</tr>
+<tr>
+<td>emailConfirmed</td>
+<td>boolean</td>
+<td>indicator if the user has confirmed his email</td>
+</tr>
+<tr>
+<td>webEnrolledDate</td>
+<td>string</td>
+<td>date that the user has enrolled in the app / web in YYYY-MM-DD format</td>
+</tr>
+<tr>
+<td>memberId</td>
+<td>string</td>
+<td>user member Id</td>
+</tr>
+<tr>
+<td>blocked</td>
+<td>boolean</td>
+<td>indicator if the user is blocked for this club</td>
+</tr>
+<tr>
+<td>comments</td>
+<td>string</td>
+<td>comments associated with the user</td>
+</tr>
+</tbody></table>
+<h1 id='transactions'>Transactions</h1>
+<aside class="success">
+Context - These services apply to a specific club, which will be also informed at the moment of enabled the API, and will be part of the api URL (CLUBID Parameter)
+</aside>
+<h2 id='get-transactions-for-a-specific-date-range'>Get Transactions for a specific date range</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://www.easycancha.com/api/clubs/&lt;CLUBID&gt;/transactionsReport/&lt;FROMISODATE&gt;/&lt;TOISODATE&gt;"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"apikey: customerrandomapikey"</span>
+</code></pre></div>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"error"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"transactionsReport"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"payment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"localTransactionDateTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2024-05-02 16:48:43"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TARJETA DE DÉBITO"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DEBIT_CARD"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"paymentIdentifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"711157"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"paymentUserFoidCountry"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CL"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"paymentUserFoidType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NI"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"paymentUserFoidNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"192256585"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"paymentUserFirstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Juan Carlos"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"paymentUserLastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rojas"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"paymentUserPhone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+56934516165"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"paymentUserEmail"</span><span class="p">:</span><span class="w"> </span><span class="s2">"juancarlos.rojas@easycancha.com"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">30000</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"paymentCurrencyName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pesos chilenos"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"collector"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Juan Carlos Rojas"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"last4digits"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"authCode"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"boletas"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"dtesType"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"dtes"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"extra_info"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nl">"products"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="nl">"productId"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"productTransactionId"</span><span class="p">:</span><span class="w"> </span><span class="mi">402535</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"transactionCategory"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Padel"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"transactionDetail"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tarro de pelotas"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"transactionSubDetail"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"transactionDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2024-05-02"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"transactionTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"17:30"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"userFoidCountry"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CL"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"userFoidType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NI"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"userFoidNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"192256585"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"userFirstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Juan Carlos"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"userLastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rojas"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"userGender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"M"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"userType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SOCIO"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"productQuantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"productAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">3000</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"fedegolfFee"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"asociacionFee"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"otherFee"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"fedegolfRealFee"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"fedegolfBoleta"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"currencyName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pesos chilenos"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"comments"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="nl">"productId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"productTransactionId"</span><span class="p">:</span><span class="w"> </span><span class="mi">15485185</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"transactionCategory"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Padel"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"transactionDetail"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cancha"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"transactionSubDetail"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cancha 1"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"transactionDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2024-05-02"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"transactionTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"17:30"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"userFoidCountry"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CL"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"userFoidType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NI"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"userFoidNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"192256585"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"userFirstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Juan Carlos"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"userLastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rojas"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"userGender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"M"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"userType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SOCIO"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"productQuantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"productAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">27000</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"fedegolfFee"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"asociacionFee"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"otherFee"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"fedegolfRealFee"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"fedegolfBoleta"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"currencyName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pesos chilenos"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"comments"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pago 10mil"</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">]</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"payment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"localTransactionDateTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2024-05-07 10:32:58"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EFECTIVO"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CASH"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"paymentIdentifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"515237"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"paymentUserFoidCountry"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CL"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"paymentUserFoidType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NI"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"paymentUserFoidNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"188857485"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"paymentUserFirstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Obriel Elías"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"paymentUserLastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Muga Molina"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"paymentUserPhone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+56976863563"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"paymentUserEmail"</span><span class="p">:</span><span class="w"> </span><span class="s2">"obriel.muga@easycancha.com"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">4500</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"paymentCurrencyName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pesos chilenos"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"collector"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Obriel Muga"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"last4digits"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"authCode"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"boletas"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"dtesType"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"dtes"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"extra_info"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nl">"products"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="nl">"productId"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"productTransactionId"</span><span class="p">:</span><span class="w"> </span><span class="mi">2035</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"transactionCategory"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pack de cupones"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"transactionDetail"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Prueba de Pack 4"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"transactionSubDetail"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"transactionDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2024-05-07"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"transactionTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"14:32"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"userFoidCountry"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CL"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"userFoidType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NI"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"userFoidNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"188857485"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"userFirstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Obriel Elías"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"userLastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Muga Molina"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"userGender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"M"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"userType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SOCIO"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"productQuantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"productAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">4500</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"fedegolfFee"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"asociacionFee"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"otherFee"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"fedegolfRealFee"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"fedegolfBoleta"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"currencyName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pesos chilenos"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"comments"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">]</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>This endpoint retrieves all payments for the specified club / period with all products associated with that payment.</p>
+<h3 id='http-request-2'>HTTP Request</h3>
+<p><code>GET https://www.easycancha.com/api/clubs/&lt;CLUBID&gt;/transactionsReport/&lt;FROMISODATE&gt;/&lt;TOISODATE&gt;</code></p>
+
+<aside class="warning">
+Maximum period for query is 1 month
+</aside>
+<h3 id='url-parameters-2'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>CLUBID</td>
+<td>Club identifier</td>
+</tr>
+<tr>
+<td>FROMISODATE</td>
+<td>from Date (included) in YYYY-MM-DD format</td>
+</tr>
+<tr>
+<td>TOISODATE</td>
+<td>to Date (included) in YYYY-MM-DD format</td>
+</tr>
+</tbody></table>
+<h3 id='object-payment-description'>Object Payment description</h3>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>localTransactionDateTime</td>
+<td>string</td>
+<td>local transaction date time in format YYYY-MM-DD HH:mm:ss</td>
+</tr>
+<tr>
+<td>name</td>
+<td>string</td>
+<td>name of the form of payment</td>
+</tr>
+<tr>
+<td>paymentIdentifier</td>
+<td>string</td>
+<td>id payment transaction</td>
+</tr>
+<tr>
+<td>paymentUserFoidCountry</td>
+<td>string</td>
+<td>payment user document country ISO 3166-1 alpha-2</td>
+</tr>
+<tr>
+<td>paymentUserFoidType</td>
+<td>string</td>
+<td>payment user document type, NI for Identification Number, PP for passport, and could be others depending on the country</td>
+</tr>
+<tr>
+<td>paymentUserFoidNumber</td>
+<td>string</td>
+<td>payment user document number</td>
+</tr>
+<tr>
+<td>paymentUserFirstName</td>
+<td>string</td>
+<td>payment user first name</td>
+</tr>
+<tr>
+<td>paymentUserLastName</td>
+<td>string</td>
+<td>payment user last name</td>
+</tr>
+<tr>
+<td>paymentUserPhone</td>
+<td>string</td>
+<td>payment user phone in international format + and numbers (ie. +56977087296)</td>
+</tr>
+<tr>
+<td>paymentUserEmail</td>
+<td>string</td>
+<td>payment user email</td>
+</tr>
+<tr>
+<td>amount</td>
+<td>decimal</td>
+<td>payment amount in local currency</td>
+</tr>
+<tr>
+<td>paymentCurrencyName</td>
+<td>string</td>
+<td>name of the local currency</td>
+</tr>
+<tr>
+<td>collector</td>
+<td>string</td>
+<td>collector of the payment. If payment was made online: ONLINE, if payment was made through SASS, name of the admin</td>
+</tr>
+<tr>
+<td>last4digits</td>
+<td>string</td>
+<td>last 4 digits in case of card payments</td>
+</tr>
+<tr>
+<td>authCode</td>
+<td>string</td>
+<td>authorization code in case of card payments</td>
+</tr>
+<tr>
+<td>boletas</td>
+<td>string</td>
+<td>invoices manually entered through admin</td>
+</tr>
+<tr>
+<td>dtesType</td>
+<td>string</td>
+<td>invoice types if invoices issued automatically if club has invoicing integration separated by ,</td>
+</tr>
+<tr>
+<td>dtes</td>
+<td>string</td>
+<td>invoices issued automatically if club has invoicing integration separated by ,</td>
+</tr>
+<tr>
+<td>extra_info</td>
+<td>string</td>
+<td>extra information about the payment</td>
+</tr>
+</tbody></table>
+<h3 id='object-product-description'>Object Product description</h3>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>productId</td>
+<td>integer</td>
+<td>product Id, 1 for courts, 2 for activities, 3 for other products, 5 for ancillaries, 7 for coupon pack</td>
+</tr>
+<tr>
+<td>productTransactionId</td>
+<td>integer</td>
+<td>product transaction id</td>
+</tr>
+<tr>
+<td>transactionCategory</td>
+<td>string</td>
+<td>product category</td>
+</tr>
+<tr>
+<td>transactionDetail</td>
+<td>string</td>
+<td>product name</td>
+</tr>
+<tr>
+<td>transactionSubDetail</td>
+<td>string</td>
+<td>product specific name</td>
+</tr>
+<tr>
+<td>transactionDate</td>
+<td>string</td>
+<td>product date in YYYY-MM-DD format</td>
+</tr>
+<tr>
+<td>transactionTime</td>
+<td>string</td>
+<td>product time in HH:mm format</td>
+</tr>
+<tr>
+<td>userFoidCountry</td>
+<td>string</td>
+<td>user document country ISO 3166-1 alpha-2</td>
+</tr>
+<tr>
+<td>userFoidType</td>
+<td>string</td>
+<td>user document type, NI for Identification Number, PP for passport, and could be others depending on the country</td>
+</tr>
+<tr>
+<td>userFoidNumber</td>
+<td>string</td>
+<td>user document number</td>
+</tr>
+<tr>
+<td>userFirstName</td>
+<td>string</td>
+<td>user first name</td>
+</tr>
+<tr>
+<td>userLastName</td>
+<td>string</td>
+<td>user last name</td>
+</tr>
+<tr>
+<td>userGender</td>
+<td>string</td>
+<td>user gender M for Male or F for Female</td>
+</tr>
+<tr>
+<td>userType</td>
+<td>string</td>
+<td>customer type user for the booking</td>
+</tr>
+<tr>
+<td>productAmount</td>
+<td>decimal</td>
+<td>product amount in local currency</td>
+</tr>
+<tr>
+<td>fedegolfFee</td>
+<td>decimal</td>
+<td>not used</td>
+</tr>
+<tr>
+<td>asociacionFee</td>
+<td>decimal</td>
+<td>not used</td>
+</tr>
+<tr>
+<td>fedegolfRealFee</td>
+<td>decimal</td>
+<td>not used</td>
+</tr>
+<tr>
+<td>fedegolfBoleta</td>
+<td>integer</td>
+<td>not used</td>
+</tr>
+<tr>
+<td>currencyName</td>
+<td>string name of the local currency</td>
+<td></td>
+</tr>
+<tr>
+<td>comments</td>
+<td>string</td>
+<td>comments for the booking</td>
+</tr>
+</tbody></table>
+<h1 id='errors'>Errors</h1>
+<p>easycancha API uses the following error codes:</p>
+
+<table><thead>
+<tr>
+<th>HTTP Code</th>
+<th>Internal Error Code</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>500</td>
+<td>-5</td>
+<td>invalid apiKey.</td>
+</tr>
+</tbody></table>
+
+      </div>
+      <div class="dark-box">
+          <div class="lang-selector">
+                <a href="#" data-language-name="shell">shell</a>
+          </div>
+      </div>
+    </div>
+  </body>
+</html>
