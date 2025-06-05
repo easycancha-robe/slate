@@ -363,3 +363,186 @@ fedegolfBoleta | integer | not used
 currencyName | string name of the local currency
 comments | string | comments for the booking
 
+# Access Control
+
+<aside class="success">
+Context - These services apply to a specific club, which will be also informed at the moment of enabled the API, and will be part of the api URL (CLUBID Parameter)
+</aside>
+
+
+## Get Customer Code Enabled users
+
+```shell
+curl "https://www.easycancha.com/api/clubs/<CLUBID>/customerCodes/<CUSTOMERCODEID>/getCustomers" \
+  -H "apikey: customerrandomapikey"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "error": false,
+    "code": 0,
+    "customers": [
+        {
+            "firstName": "Roberto",
+            "lastName": "de Campos Wichrowski",
+            "fullName": "Roberto de Campos Wichrowski",
+            "foidCountry": "CL",
+            "foidType": "NI",
+            "foidNumber": "14543789K",
+            "memberId": null
+        },
+        {
+            "firstName": "Patricio",
+            "lastName": "Cordero",
+            "fullName": "Patricio Cordero",
+            "foidCountry": "CL",
+            "foidType": "NI",
+            "foidNumber": "154455671",
+            "memberId": "554345"
+        }
+    ]
+}
+```
+
+This endpoint retrieves all users that have a specific customer code enabled that should be able to acces the facilities.
+You can get a list of all customers, or you can query by foid_country / foid_type / foid_number and get specific information for just one customer.
+
+### HTTP Request
+
+`GET https://www.easycancha.com/api/clubs/<CLUBID>/customerCodes/<CUSTOMERCODEID>/getCustomers`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+CLUBID | Club identifier
+CUSTOMERCODEID | Specific customer code to retrieve
+
+### QUERY Parameters
+Parameter | Description | Mandatory
+--------- | ----------- | ---------
+foid_country | user document country ISO 3166-1 alpha-2 | N
+foid_type | user document type, NI for Identification Number, PP for passport, and could be others depending on the country | N
+foid_number | user document number | N
+
+### Object User description
+
+Field | Type | Description
+--------- | ----------- | -----------
+firstName | string | user first name
+lastName | string | user last name
+fullName | string | user full name
+foidCountry | string | user document country ISO 3166-1 alpha-2
+foidType | string | user document type, NI for Identification Number, PP for passport, and could be others depending on the country
+foidNumber | string | user document number
+memberId | string | user member ID
+
+## Get Bookings
+
+```shell
+curl "https://www.easycancha.com/api/clubs/<CLUBID>/getBookings" \
+  -H "apikey: customerrandomapikey"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "error": false,
+    "code": 0,
+    "bookings": [
+        {
+            "firstName": "Roberto",
+            "lastName": "de Campos Wichrowski",
+            "foidCountry": "CL",
+            "foidType": "NI",
+            "foidNumber": "145437377",
+            "bookingId": 11,
+            "sportName": "Padel",
+            "localStartDateTime": "2023-11-20 12:00:00",
+            "localEndDateTime": "2023-11-20 13:00:00"
+        },
+        {
+            "firstName": "Daniela",
+            "lastName": "Baytelman",
+            "foidCountry": "CL",
+            "foidType": "NI",
+            "foidNumber": "130278914",
+            "bookingId": 12,
+            "sportName": "Padel",
+            "localStartDateTime": "2023-11-20 13:00:00",
+            "localEndDateTime": "2023-11-20 14:00:00"
+        }
+    ],
+    "activity_bookings": [
+        {
+            "firstName": "Roberto",
+            "lastName": "de Campos Wichrowski",
+            "fullName": "Roberto de Campos Wichrowski",
+            "foidCountry": "CL",
+            "foidType": "NI",
+            "foidNumber": "145437377",
+            "bookingId": 282254,
+            "category": "Membresías",
+            "name": "Black",
+            "localStartDateTime": "2025-04-24 00:00:00",
+            "localEndDateTime": "2025-05-23 00:00:00"
+        },
+        {
+            "firstName": "Daniela",
+            "lastName": "Baytelman",
+            "fullName": "Daniela Baytelman",
+            "foidCountry": "CL",
+            "foidType": "NI",
+            "foidNumber": "130278914",
+            "bookingId": 282254,
+            "category": "Gimnasio",
+            "name": "Personal Trainer",
+            "localStartDateTime": "2025-04-24 00:00:00",
+            "localEndDateTime": "2025-05-23 00:00:00"
+        }
+    ]
+}
+```
+
+This endpoint retrieves all bookings for the current day and this information should be used to grant access to acces the facilities.
+You can get a list of all booking for the day, or you can query by foid_country / foid_type / foid_number and get specific information for just one customer.
+
+### HTTP Request
+
+`GET https://www.easycancha.com/api/clubs/<CLUBID>/getBookings`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+CLUBID | Club identifier
+
+### QUERY Parameters
+Parameter | Description | Mandatory
+--------- | ----------- | ---------
+foid_country | user document country ISO 3166-1 alpha-2 | N
+foid_type | user document type, NI for Identification Number, PP for passport, and could be others depending on the country | N
+foid_number | user document number | N
+
+### Object bookings description
+
+Field | Type | Description
+--------- | ----------- | -----------
+firstName | string | user first name
+lastName | string | user last name
+foidCountry | string | user document country ISO 3166-1 alpha-2
+foidType | string | user document type, NI for Identification Number, PP for passport, and could be others depending on the country
+foidNumber | string | user document number
+
+### Object activity_bookings description
+
+Field | Type | Description
+--------- | ----------- | -----------
+firstName | string | user first name
+lastName | string | user last name
+foidCountry | string | user document country ISO 3166-1 alpha-2
+foidType | string | user document type, NI for Identification Number, PP for passport, and could be others depending on the country
+foidNumber | string | user document number
