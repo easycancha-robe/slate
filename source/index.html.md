@@ -363,6 +363,168 @@ fedegolfBoleta | integer | not used
 currencyName | string name of the local currency
 comments | string | comments for the booking
 
+# Bookings
+
+<aside class="success">
+Context - These services apply to a specific club, which will be also informed at the moment of enabled the API, and will be part of the api URL (CLUBID Parameter)
+</aside>
+
+## Get Bookings for a specific period (and optional for a specific sport)
+
+```shell
+curl "https://www.easycancha.com/api/clubs/<CLUBID>/bookingsReport" \
+  -H "apikey: customerrandomapikey"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "error": false,
+    "code": 0,
+    "bookings": [
+        {
+            "id": "22215493",
+            "courtId": 697,
+            "sportId": 3,
+            "sportName": "Futbolito",
+            "courtName": "Cancha 2",
+            "localDate": "2025-06-10",
+            "localStartTime": "08:00",
+            "localEndTime": "09:00",
+            "timespan": 60,
+            "userId": 66,
+            "userFirstName": "Roberto",
+            "userLastName": "De Campos Wichrowski",
+            "userEmail": "robertodecampos@gmail.com",
+            "userPhone": "+56998868135",
+            "userBirthDate": "1979-09-09",
+            "userFoidCountry": "CL",
+            "userFoidType": "NI",
+            "status": "BOOKED",
+            "comments": null,
+            "waived": "N",
+            "bookedBy": "club",
+            "amount": 25000,
+            "amountPaid": 0,
+            "ancillariesAmount": 62000,
+            "ancillariesAmountPaid": 0,
+            "totalAmount": 87000,
+            "totalAmountPaid": 0,
+            "discountAmount": 0,
+            "ancillaries": [
+            {
+                "clubAncillaryId": "48",
+                "quantity": 3,
+                "name": "Terraza",
+                "detail": "1 hora y media"
+            },
+            {
+                "clubAncillaryId": "142",
+                "quantity": 1,
+                "name": "Luz",
+                "detail": null
+            }
+            ]
+        },
+        {
+            "id": "20611829",
+            "courtId": 974,
+            "sportId": 7,
+            "sportName": "Padel",
+            "courtName": "Cancha 1",
+            "localDate": "2025-06-10",
+            "localStartTime": "09:00",
+            "localEndTime": "10:00",
+            "timespan": 60,
+            "userId": 77771,
+            "userFirstName": "Emiliano",
+            "userLastName": "Castellucci",
+            "userEmail": "emilianocastellucci90@hotmail.com",
+            "userPhone": "+56963337955",
+            "userBirthDate": "1990-10-03",
+            "userFoidCountry": "CL",
+            "userFoidType": "NI",
+            "status": "BOOKED",
+            "comments": null,
+            "waived": "N",
+            "bookedBy": "club",
+            "amount": 12000,
+            "amountPaid": 0,
+            "ancillariesAmount": null,
+            "ancillariesAmountPaid": null,
+            "totalAmount": 12000,
+            "totalAmountPaid": 0,
+            "discountAmount": 0
+        }
+    ]
+}       
+```
+
+This endpoint retrieves all bookings between fromIsoDate and toIsoDate (included).
+You can get a list of all booking, or you can query by sportId and get specific information for just one sport.
+
+### HTTP Request
+
+`GET https://www.easycancha.com/api/clubs/<CLUBID>/bookingsReport`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+CLUBID | Club identifier
+
+### QUERY Parameters
+Parameter | Description | Mandatory
+--------- | ----------- | ---------
+fromIsoDate | from Date (included) in YYYY-MM-DD format | Y
+toIsoDate | to Date (included) in YYYY-MM-DD format | Y
+sportId | sportId to filter | N
+
+### Object bookings description
+
+Field | Type | Description
+--------- | ----------- | -----------
+id | number | booking id
+courtId | number | court id
+sportId | number | sport id
+sportName | string | sport name
+courtName | string | court name
+localDate | string | booking local date in YYYY-MM-DD format
+localStartTime | string | booking local start time in HH:mm:ss format
+localEndTime | string | booking local end time in HH:mm:ss format
+timespan | number | duration of the booking
+userId | number | user id
+userFirstName | string | user first name
+userLastName | string | user last name
+userEmail | string | user email
+userPhone | string | user phone
+userBirthDate | string | user birth date in YYYY-MM-DD format
+userFoidCountry | string | user document country ISO 3166-1 alpha-2
+userFoidType | string | user document type, NI for Identification Number, PP for passport, and could be others depending on the country
+userFoidNumber | string | user document number
+status | string | status of the booking. Can be one of BOOKED, PARTIALLY_PAID, PAID , USED, CANCELLED, EXCHANGED
+comments | string | comments of the bookings
+waived | string | "Y" or "N" depending if the booking was waived by the club for changes / cancellations
+bookedBy | string | "club" or "user" depending if the booking was made by the club or the user
+amount | number | booking total amount
+amountPaid | number | booking paid amount
+ancillariesAmount | number | ancillaries total amount
+ancillariesAmountPaid | number | ancillaries paid amount
+totalAmount | number | total amount (booking + ancillaries)
+totalAmountPaid | number | total paid amount (booking + ancillaries)
+discountAmount | number | discount amount
+ancillaries | array | array of ancillary items
+
+### Object ancillaries description
+
+Field | Type | Description
+--------- | ----------- | -----------
+clubAncillaryId | number | unique id of ancillary for club
+quantity | number | quantity
+name | string | name of ancillary
+detail | string | detaill of ancillary
+
 # Access Control
 
 <aside class="success">
