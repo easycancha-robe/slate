@@ -412,6 +412,7 @@ curl "https://www.easycancha.com/api/clubs/<CLUBID>/bookingsReport" \
             "totalAmount": 87000,
             "totalAmountPaid": 0,
             "discountAmount": 0,
+            "customerCodes": "Socio",
             "ancillaries": [
             {
                 "clubAncillaryId": "48",
@@ -455,7 +456,8 @@ curl "https://www.easycancha.com/api/clubs/<CLUBID>/bookingsReport" \
             "ancillariesAmountPaid": null,
             "totalAmount": 12000,
             "totalAmountPaid": 0,
-            "discountAmount": 0
+            "discountAmount": 0,
+            "customerCodes": "Socio"
         }
     ]
 }       
@@ -514,6 +516,7 @@ ancillariesAmountPaid | number | ancillaries paid amount
 totalAmount | number | total amount (booking + ancillaries)
 totalAmountPaid | number | total paid amount (booking + ancillaries)
 discountAmount | number | discount amount
+customerCodes | string | customer codes associated with the booking
 ancillaries | array | array of ancillary items
 
 ### Object ancillaries description
