@@ -335,6 +335,25 @@
               </ul>
           </li>
           <li>
+            <a href="#bookings" class="toc-h1 toc-link" data-title="Bookings">Bookings</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#get-bookings-for-a-specific-period-and-optional-for-a-specific-sport" class="toc-h2 toc-link" data-title="Get Bookings for a specific period (and optional for a specific sport)">Get Bookings for a specific period (and optional for a specific sport)</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#access-control" class="toc-h1 toc-link" data-title="Access Control">Access Control</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#get-customer-code-enabled-users" class="toc-h2 toc-link" data-title="Get Customer Code Enabled users">Get Customer Code Enabled users</a>
+                  </li>
+                  <li>
+                    <a href="#get-bookings" class="toc-h2 toc-link" data-title="Get Bookings">Get Bookings</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
           </li>
       </ul>
@@ -916,6 +935,626 @@ Maximum period for query is 1 month
 <td>comments</td>
 <td>string</td>
 <td>comments for the booking</td>
+</tr>
+</tbody></table>
+<h1 id='bookings'>Bookings</h1>
+<aside class="success">
+Context - These services apply to a specific club, which will be also informed at the moment of enabled the API, and will be part of the api URL (CLUBID Parameter)
+</aside>
+<h2 id='get-bookings-for-a-specific-period-and-optional-for-a-specific-sport'>Get Bookings for a specific period (and optional for a specific sport)</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://www.easycancha.com/api/clubs/&lt;CLUBID&gt;/bookingsReport"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"apikey: customerrandomapikey"</span>
+</code></pre></div>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"error"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"bookings"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"22215493"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"courtId"</span><span class="p">:</span><span class="w"> </span><span class="mi">697</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"sportId"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"sportName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Futbolito"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"courtName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cancha 2"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"localDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-06-10"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"localStartTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"08:00"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"localEndTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"09:00"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"timespan"</span><span class="p">:</span><span class="w"> </span><span class="mi">60</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"userId"</span><span class="p">:</span><span class="w"> </span><span class="mi">66</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"userFirstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Roberto"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"userLastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"De Campos Wichrowski"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"userEmail"</span><span class="p">:</span><span class="w"> </span><span class="s2">"robertodecampos@gmail.com"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"userPhone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+56998868135"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"userBirthDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1979-09-09"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"userFoidCountry"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CL"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"userFoidType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NI"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BOOKED"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"comments"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"waived"</span><span class="p">:</span><span class="w"> </span><span class="s2">"N"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"bookedBy"</span><span class="p">:</span><span class="w"> </span><span class="s2">"club"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">25000</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"amountPaid"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"ancillariesAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">62000</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"ancillariesAmountPaid"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"totalAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">87000</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"totalAmountPaid"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"discountAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"customerCodes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Socio"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"ancillaries"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"clubAncillaryId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"48"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Terraza"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"detail"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1 hora y media"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"clubAncillaryId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"142"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Luz"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"detail"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+            </span><span class="p">]</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20611829"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"courtId"</span><span class="p">:</span><span class="w"> </span><span class="mi">974</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"sportId"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"sportName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Padel"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"courtName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cancha 1"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"localDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-06-10"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"localStartTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"09:00"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"localEndTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10:00"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"timespan"</span><span class="p">:</span><span class="w"> </span><span class="mi">60</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"userId"</span><span class="p">:</span><span class="w"> </span><span class="mi">77771</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"userFirstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Emiliano"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"userLastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Castellucci"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"userEmail"</span><span class="p">:</span><span class="w"> </span><span class="s2">"emilianocastellucci90@hotmail.com"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"userPhone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+56963337955"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"userBirthDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1990-10-03"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"userFoidCountry"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CL"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"userFoidType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NI"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BOOKED"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"comments"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"waived"</span><span class="p">:</span><span class="w"> </span><span class="s2">"N"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"bookedBy"</span><span class="p">:</span><span class="w"> </span><span class="s2">"club"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">12000</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"amountPaid"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"ancillariesAmount"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"ancillariesAmountPaid"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"totalAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">12000</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"totalAmountPaid"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"discountAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"customerCodes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Socio"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">       
+</span></code></pre></div>
+<p>This endpoint retrieves all bookings between fromIsoDate and toIsoDate (included).
+You can get a list of all booking, or you can query by sportId and get specific information for just one sport.</p>
+<h3 id='http-request-3'>HTTP Request</h3>
+<p><code>GET https://www.easycancha.com/api/clubs/&lt;CLUBID&gt;/bookingsReport</code></p>
+<h3 id='url-parameters-3'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>CLUBID</td>
+<td>Club identifier</td>
+</tr>
+</tbody></table>
+<h3 id='query-parameters'>QUERY Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Mandatory</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>fromIsoDate</td>
+<td>from Date (included) in YYYY-MM-DD format</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>toIsoDate</td>
+<td>to Date (included) in YYYY-MM-DD format</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>sportId</td>
+<td>sportId to filter</td>
+<td>N</td>
+</tr>
+</tbody></table>
+<h3 id='object-bookings-description'>Object bookings description</h3>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>number</td>
+<td>booking id</td>
+</tr>
+<tr>
+<td>courtId</td>
+<td>number</td>
+<td>court id</td>
+</tr>
+<tr>
+<td>sportId</td>
+<td>number</td>
+<td>sport id</td>
+</tr>
+<tr>
+<td>sportName</td>
+<td>string</td>
+<td>sport name</td>
+</tr>
+<tr>
+<td>courtName</td>
+<td>string</td>
+<td>court name</td>
+</tr>
+<tr>
+<td>localDate</td>
+<td>string</td>
+<td>booking local date in YYYY-MM-DD format</td>
+</tr>
+<tr>
+<td>localStartTime</td>
+<td>string</td>
+<td>booking local start time in HH:mm:ss format</td>
+</tr>
+<tr>
+<td>localEndTime</td>
+<td>string</td>
+<td>booking local end time in HH:mm:ss format</td>
+</tr>
+<tr>
+<td>timespan</td>
+<td>number</td>
+<td>duration of the booking</td>
+</tr>
+<tr>
+<td>userId</td>
+<td>number</td>
+<td>user id</td>
+</tr>
+<tr>
+<td>userFirstName</td>
+<td>string</td>
+<td>user first name</td>
+</tr>
+<tr>
+<td>userLastName</td>
+<td>string</td>
+<td>user last name</td>
+</tr>
+<tr>
+<td>userEmail</td>
+<td>string</td>
+<td>user email</td>
+</tr>
+<tr>
+<td>userPhone</td>
+<td>string</td>
+<td>user phone</td>
+</tr>
+<tr>
+<td>userBirthDate</td>
+<td>string</td>
+<td>user birth date in YYYY-MM-DD format</td>
+</tr>
+<tr>
+<td>userFoidCountry</td>
+<td>string</td>
+<td>user document country ISO 3166-1 alpha-2</td>
+</tr>
+<tr>
+<td>userFoidType</td>
+<td>string</td>
+<td>user document type, NI for Identification Number, PP for passport, and could be others depending on the country</td>
+</tr>
+<tr>
+<td>userFoidNumber</td>
+<td>string</td>
+<td>user document number</td>
+</tr>
+<tr>
+<td>status</td>
+<td>string</td>
+<td>status of the booking. Can be one of BOOKED, PARTIALLY_PAID, PAID , USED, CANCELLED, EXCHANGED</td>
+</tr>
+<tr>
+<td>comments</td>
+<td>string</td>
+<td>comments of the bookings</td>
+</tr>
+<tr>
+<td>waived</td>
+<td>string</td>
+<td>&quot;Y&quot; or &quot;N&quot; depending if the booking was waived by the club for changes / cancellations</td>
+</tr>
+<tr>
+<td>bookedBy</td>
+<td>string</td>
+<td>&quot;club&quot; or &quot;user&quot; depending if the booking was made by the club or the user</td>
+</tr>
+<tr>
+<td>amount</td>
+<td>number</td>
+<td>booking total amount</td>
+</tr>
+<tr>
+<td>amountPaid</td>
+<td>number</td>
+<td>booking paid amount</td>
+</tr>
+<tr>
+<td>ancillariesAmount</td>
+<td>number</td>
+<td>ancillaries total amount</td>
+</tr>
+<tr>
+<td>ancillariesAmountPaid</td>
+<td>number</td>
+<td>ancillaries paid amount</td>
+</tr>
+<tr>
+<td>totalAmount</td>
+<td>number</td>
+<td>total amount (booking + ancillaries)</td>
+</tr>
+<tr>
+<td>totalAmountPaid</td>
+<td>number</td>
+<td>total paid amount (booking + ancillaries)</td>
+</tr>
+<tr>
+<td>discountAmount</td>
+<td>number</td>
+<td>discount amount</td>
+</tr>
+<tr>
+<td>customerCodes</td>
+<td>string</td>
+<td>customer codes associated with the booking</td>
+</tr>
+<tr>
+<td>ancillaries</td>
+<td>array</td>
+<td>array of ancillary items</td>
+</tr>
+</tbody></table>
+<h3 id='object-ancillaries-description'>Object ancillaries description</h3>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>clubAncillaryId</td>
+<td>number</td>
+<td>unique id of ancillary for club</td>
+</tr>
+<tr>
+<td>quantity</td>
+<td>number</td>
+<td>quantity</td>
+</tr>
+<tr>
+<td>name</td>
+<td>string</td>
+<td>name of ancillary</td>
+</tr>
+<tr>
+<td>detail</td>
+<td>string</td>
+<td>detaill of ancillary</td>
+</tr>
+</tbody></table>
+<h1 id='access-control'>Access Control</h1>
+<aside class="success">
+Context - These services apply to a specific club, which will be also informed at the moment of enabled the API, and will be part of the api URL (CLUBID Parameter)
+</aside>
+<h2 id='get-customer-code-enabled-users'>Get Customer Code Enabled users</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://www.easycancha.com/api/clubs/&lt;CLUBID&gt;/customerCodes/&lt;CUSTOMERCODEID&gt;/getCustomers"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"apikey: customerrandomapikey"</span>
+</code></pre></div>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"error"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"customers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"firstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Roberto"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"lastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"de Campos Wichrowski"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"fullName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Roberto de Campos Wichrowski"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"foidCountry"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CL"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"foidType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NI"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"foidNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"14543789K"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"memberId"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"firstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Patricio"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"lastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cordero"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"fullName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Patricio Cordero"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"foidCountry"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CL"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"foidType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NI"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"foidNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"154455671"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"memberId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"554345"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>This endpoint retrieves all users that have a specific customer code enabled that should be able to acces the facilities.
+You can get a list of all customers, or you can query by foid_country / foid_type / foid_number and get specific information for just one customer.</p>
+<h3 id='http-request-4'>HTTP Request</h3>
+<p><code>GET https://www.easycancha.com/api/clubs/&lt;CLUBID&gt;/customerCodes/&lt;CUSTOMERCODEID&gt;/getCustomers</code></p>
+<h3 id='url-parameters-4'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>CLUBID</td>
+<td>Club identifier</td>
+</tr>
+<tr>
+<td>CUSTOMERCODEID</td>
+<td>Specific customer code to retrieve</td>
+</tr>
+</tbody></table>
+<h3 id='query-parameters-2'>QUERY Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Mandatory</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>foid_country</td>
+<td>user document country ISO 3166-1 alpha-2</td>
+<td>N</td>
+</tr>
+<tr>
+<td>foid_type</td>
+<td>user document type, NI for Identification Number, PP for passport, and could be others depending on the country</td>
+<td>N</td>
+</tr>
+<tr>
+<td>foid_number</td>
+<td>user document number</td>
+<td>N</td>
+</tr>
+</tbody></table>
+<h3 id='object-user-description-2'>Object User description</h3>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>firstName</td>
+<td>string</td>
+<td>user first name</td>
+</tr>
+<tr>
+<td>lastName</td>
+<td>string</td>
+<td>user last name</td>
+</tr>
+<tr>
+<td>fullName</td>
+<td>string</td>
+<td>user full name</td>
+</tr>
+<tr>
+<td>foidCountry</td>
+<td>string</td>
+<td>user document country ISO 3166-1 alpha-2</td>
+</tr>
+<tr>
+<td>foidType</td>
+<td>string</td>
+<td>user document type, NI for Identification Number, PP for passport, and could be others depending on the country</td>
+</tr>
+<tr>
+<td>foidNumber</td>
+<td>string</td>
+<td>user document number</td>
+</tr>
+<tr>
+<td>memberId</td>
+<td>string</td>
+<td>user member ID</td>
+</tr>
+</tbody></table>
+<h2 id='get-bookings'>Get Bookings</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://www.easycancha.com/api/clubs/&lt;CLUBID&gt;/getBookings"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"apikey: customerrandomapikey"</span>
+</code></pre></div>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"error"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"bookings"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"firstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Roberto"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"lastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"de Campos Wichrowski"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"foidCountry"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CL"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"foidType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NI"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"foidNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"145437377"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"bookingId"</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"sportName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Padel"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"localStartDateTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-11-20 12:00:00"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"localEndDateTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-11-20 13:00:00"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"firstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Daniela"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"lastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Baytelman"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"foidCountry"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CL"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"foidType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NI"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"foidNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"130278914"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"bookingId"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"sportName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Padel"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"localStartDateTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-11-20 13:00:00"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"localEndDateTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-11-20 14:00:00"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"activity_bookings"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"firstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Roberto"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"lastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"de Campos Wichrowski"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"fullName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Roberto de Campos Wichrowski"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"foidCountry"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CL"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"foidType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NI"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"foidNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"145437377"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"bookingId"</span><span class="p">:</span><span class="w"> </span><span class="mi">282254</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Membresías"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Black"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"localStartDateTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-04-24 00:00:00"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"localEndDateTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-05-23 00:00:00"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"firstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Daniela"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"lastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Baytelman"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"fullName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Daniela Baytelman"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"foidCountry"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CL"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"foidType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NI"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"foidNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"130278914"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"bookingId"</span><span class="p">:</span><span class="w"> </span><span class="mi">282254</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Gimnasio"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Personal Trainer"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"localStartDateTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-04-24 00:00:00"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"localEndDateTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-05-23 00:00:00"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>This endpoint retrieves all bookings for the current day and this information should be used to grant access to acces the facilities.
+You can get a list of all booking for the day, or you can query by foid_country / foid_type / foid_number and get specific information for just one customer.</p>
+<h3 id='http-request-5'>HTTP Request</h3>
+<p><code>GET https://www.easycancha.com/api/clubs/&lt;CLUBID&gt;/getBookings</code></p>
+<h3 id='url-parameters-5'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>CLUBID</td>
+<td>Club identifier</td>
+</tr>
+</tbody></table>
+<h3 id='query-parameters-3'>QUERY Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Mandatory</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>foid_country</td>
+<td>user document country ISO 3166-1 alpha-2</td>
+<td>N</td>
+</tr>
+<tr>
+<td>foid_type</td>
+<td>user document type, NI for Identification Number, PP for passport, and could be others depending on the country</td>
+<td>N</td>
+</tr>
+<tr>
+<td>foid_number</td>
+<td>user document number</td>
+<td>N</td>
+</tr>
+</tbody></table>
+<h3 id='object-bookings-description-2'>Object bookings description</h3>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>firstName</td>
+<td>string</td>
+<td>user first name</td>
+</tr>
+<tr>
+<td>lastName</td>
+<td>string</td>
+<td>user last name</td>
+</tr>
+<tr>
+<td>foidCountry</td>
+<td>string</td>
+<td>user document country ISO 3166-1 alpha-2</td>
+</tr>
+<tr>
+<td>foidType</td>
+<td>string</td>
+<td>user document type, NI for Identification Number, PP for passport, and could be others depending on the country</td>
+</tr>
+<tr>
+<td>foidNumber</td>
+<td>string</td>
+<td>user document number</td>
+</tr>
+</tbody></table>
+<h3 id='object-activity_bookings-description'>Object activity_bookings description</h3>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>firstName</td>
+<td>string</td>
+<td>user first name</td>
+</tr>
+<tr>
+<td>lastName</td>
+<td>string</td>
+<td>user last name</td>
+</tr>
+<tr>
+<td>foidCountry</td>
+<td>string</td>
+<td>user document country ISO 3166-1 alpha-2</td>
+</tr>
+<tr>
+<td>foidType</td>
+<td>string</td>
+<td>user document type, NI for Identification Number, PP for passport, and could be others depending on the country</td>
+</tr>
+<tr>
+<td>foidNumber</td>
+<td>string</td>
+<td>user document number</td>
 </tr>
 </tbody></table>
 <h1 id='errors'>Errors</h1>
